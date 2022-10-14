@@ -31,7 +31,7 @@ class TransformersCollate:
 
     def __post_init__(self):
         tokenizer_kwargs = self.tokenizer_kwargs or {}
-        self.tokenizer = AutoTokenizer.from_pretrained(self.backbone, use_fast=True, **tokenizer_kwargs)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.backbone, use_fast=True, force_download=True, **tokenizer_kwargs)
 
     @staticmethod
     def to_tensor(sample: Dict[str, Any]) -> Dict[str, Any]:
